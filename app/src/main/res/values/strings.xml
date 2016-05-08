@@ -5,6 +5,7 @@
     <string name="manage_products">Manage Products</string>
     <string name="my_sales">My Sales</string>
 
+    <string name="client">Client</string>
     <string name="client_new">Add new client</string>
     <string name="client_name">Name</string>
     <string name="client_address">Address</string>
@@ -14,6 +15,7 @@
     <string name="client_edit">Edit Client</string>
     <string name="client_new_title">New Client</string>
 
+    <string name="product">Product</string>
     <string name="product_new">Add new Product</string>
     <string name="product_name">Description</string>
     <string name="product_company">Company</string>
@@ -29,4 +31,6 @@
     <string name="clients_manage">Manage Clients</string>
     <string name="products_manage">Manage Products</string>
     <string name="main_title">Sales Assistant</string>
+    <string name="sale_new">Make Sale</string>
+    <string name="sale_save">Save Sale</string>
 </resources>

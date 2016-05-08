@@ -15,11 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ClientsActivity" android:label="@string/clients_manage" />
-        <activity android:name=".activity.ProductsActivity" android:label="@string/products_manage"/>
-        <activity android:name=".activity.SalesActivity" android:label="@string/main_title" />
+        <activity
+            android:name=".activity.ClientsActivity"
+            android:label="@string/clients_manage" />
+        <activity
+            android:name=".activity.ProductsActivity"
+            android:label="@string/products_manage" />
+        <activity
+            android:name=".activity.SalesActivity"
+            android:label="@string/main_title" />
         <activity android:name=".activity.ClientDetailsActivity" />
         <activity android:name=".activity.ProductDetailsActivity" />
+        <activity android:name=".activity.SaleDetailsActivity"></activity>
     </application>
 
 </manifest>
