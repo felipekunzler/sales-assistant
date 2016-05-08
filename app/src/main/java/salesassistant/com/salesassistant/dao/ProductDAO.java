@@ -18,6 +18,7 @@ public class ProductDAO extends BaseDAO<Product>{
     public static final String COL_NAME = "NAME";
     public static final String COL_COMPANY = "COMPANY";
 
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             COL_NAME + " TEXT NOT NULL," +

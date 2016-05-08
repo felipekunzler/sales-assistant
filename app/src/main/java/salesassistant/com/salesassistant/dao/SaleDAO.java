@@ -11,6 +11,7 @@ public class SaleDAO {
     public static final String COL_CLIENT = "CLIENT";
     public static final String COL_PRODUCT = "PRODUCT";
 
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
             COL_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," +
             COL_CLIENT + "INTEGER NOT NULL," +

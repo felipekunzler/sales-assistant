@@ -26,6 +26,7 @@ public class ClientDAO extends BaseDAO<Client>{
     public static final String COL_ADDRESS = "ADDRESS";
     public static final String COL_EMAIL = "EMAIL";
 
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             COL_NAME + " TEXT NOT NULL," +

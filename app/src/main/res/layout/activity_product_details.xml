@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context="salesassistant.com.salesassistant.activity.ClientDetailsActivity">
+    tools:context="salesassistant.com.salesassistant.activity.ProductsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/client_name"
+            android:text="@string/product_name"
             android:id="@+id/txtName" />
 
         <EditText
@@ -30,38 +30,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/client_address"
-            android:id="@+id/txtAddress" />
+            android:text="@string/product_company"
+            android:id="@+id/txtCompany" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editAddress"
+            android:id="@+id/editCompany"
             android:inputType="none" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/client_phone"
-            android:id="@+id/txtPhone" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editPhone"
-            android:inputType="phone" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/client_email"
-            android:id="@+id/txtEmail" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editEmail"
-            android:inputType="textWebEmailAddress" />
     </LinearLayout>
 
     <Button
@@ -70,9 +47,9 @@
         android:layout_marginTop="0dp"
         android:layout_weight="1"
         android:layout_marginBottom="0dp"
-        android:id="@+id/btnSaveClient"
-        android:text="@string/client_save"
-        android:onClick="onBtnSaveClientClick"
+        android:id="@+id/btnSaveProduct"
+        android:text="@string/product_save"
+        android:onClick="onBtnSaveProductClick"
         style="@style/CustomButton"
         android:layout_margin="10dp"/>
 
