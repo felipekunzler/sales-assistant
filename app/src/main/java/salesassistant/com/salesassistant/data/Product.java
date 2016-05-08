@@ -3,29 +3,23 @@ package salesassistant.com.salesassistant.data;
 /**
  * Simple Product POJO
  */
-public class Product {
+public class Product extends Item {
 
-    private long id;
     private String name;
     private String company;
 
-    public long getId() {
-
-        return id;
+    public Product() {
+        super(-1);
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Product(String name, String company) {
+    public Product(long id, String name, String company) {
+        super(id);
         this.name = name;
         this.company = company;
     }
 
-    public Product(int id, String name, String company) {
-        this(name, company);
-        this.id = id;
+    public Product(String name, String company) {
+        this(-1, name, company);
     }
 
     public String getName() {
