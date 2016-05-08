@@ -14,9 +14,9 @@ import salesassistant.com.salesassistant.data.Product;
 public class ProductDAO extends BaseDAO<Product>{
 
     public static final String TABLE_NAME = "PRODUCT";
-    public static final String COL_ID = "ID";
-    public static final String COL_NAME = "NAME";
-    public static final String COL_COMPANY = "COMPANY";
+    public static final String COL_ID = "P_ID";
+    public static final String COL_NAME = "P_NAME";
+    public static final String COL_COMPANY = "P_COMPANY";
 
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
@@ -36,6 +36,10 @@ public class ProductDAO extends BaseDAO<Product>{
 
     @Override
     protected Product extractItem(Cursor cursor) {
+        return ProductDAO.extractItemUtil(cursor);
+    }
+
+    static Product extractItemUtil(Cursor cursor) {
         long id = cursor.getLong(cursor.getColumnIndex(COL_ID));
         String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
         String company = cursor.getString(cursor.getColumnIndex(COL_COMPANY));
@@ -59,4 +63,5 @@ public class ProductDAO extends BaseDAO<Product>{
     protected String getTableName() {
         return TABLE_NAME;
     }
+
 }

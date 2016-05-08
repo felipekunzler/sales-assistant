@@ -4,27 +4,20 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import salesassistant.com.salesassistant.data.Client;
-import salesassistant.com.salesassistant.database.DatabaseHelper;
 
 /**
  * Client Data Access Object
  */
 public class ClientDAO extends BaseDAO<Client>{
 
-    private static final String TAG = ClientDAO.class.getSimpleName();
-
     public static final String TABLE_NAME = "CLIENT";
-    public static final String COL_ID = "ID";
-    public static final String COL_NAME = "NAME";
-    public static final String COL_PHONE = "PHONE";
-    public static final String COL_ADDRESS = "ADDRESS";
-    public static final String COL_EMAIL = "EMAIL";
+    public static final String COL_ID = "C_ID";
+    public static final String COL_NAME = "C_NAME";
+    public static final String COL_PHONE = "C_PHONE";
+    public static final String COL_ADDRESS = "C_ADDRESS";
+    public static final String COL_EMAIL = "C_EMAIL";
 
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
@@ -46,6 +39,10 @@ public class ClientDAO extends BaseDAO<Client>{
 
     @Override
     protected Client extractItem(Cursor cursor) {
+        return ClientDAO.extractItemUtil(cursor);
+    }
+
+    static Client extractItemUtil(Cursor cursor) {
         long id = cursor.getLong(cursor.getColumnIndex(COL_ID));
         String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
         String phone = cursor.getString(cursor.getColumnIndex(COL_PHONE));

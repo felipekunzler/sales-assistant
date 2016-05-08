@@ -9,17 +9,16 @@ public class Product extends Item {
     private String company;
 
     public Product() {
-        super(-1);
     }
 
-    public Product(long id, String name, String company) {
-        super(id);
+    public Product(String name, String company) {
         this.name = name;
         this.company = company;
     }
 
-    public Product(String name, String company) {
-        this(-1, name, company);
+    public Product(long id, String name, String company) {
+        this(name, company);
+        this.id = id;
     }
 
     public String getName() {
@@ -38,4 +37,12 @@ public class Product extends Item {
         this.company = company;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
 }

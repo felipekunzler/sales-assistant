@@ -10,11 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import salesassistant.com.salesassistant.CustomAdapter;
-import salesassistant.com.salesassistant.listener.CustomOnItemClickListener;
-import salesassistant.com.salesassistant.listener.CustomOnItemLongClickListener;
 import salesassistant.com.salesassistant.R;
 import salesassistant.com.salesassistant.dao.ClientDAO;
 import salesassistant.com.salesassistant.data.Client;
+import salesassistant.com.salesassistant.listener.CustomOnItemClickListener;
+import salesassistant.com.salesassistant.listener.CustomOnItemLongClickListener;
 
 public class ClientsActivity extends AppCompatActivity {
 

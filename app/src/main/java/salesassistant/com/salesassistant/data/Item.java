@@ -7,10 +7,6 @@ public abstract class Item {
 
     protected long id;
 
-    public Item(long id) {
-        this.id = id;
-    }
-
     public long getId() {
         return id;
     }

@@ -11,19 +11,18 @@ public class Client extends Item {
     private String email;
 
     public Client() {
-        super(-1);
     }
 
-    public Client(long id, String name, String phone, String address, String email) {
-        super(id);
+    public Client(String name, String phone, String address, String email) {
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.email = email;
     }
 
-    public Client(String name, String phone, String address, String email) {
-        this(-1, name, phone, address, email);
+    public Client(long id, String name, String phone, String address, String email) {
+        this(name, phone, address, email);
+        this.id = id;
     }
 
     public String getName() {
@@ -58,4 +57,14 @@ public class Client extends Item {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

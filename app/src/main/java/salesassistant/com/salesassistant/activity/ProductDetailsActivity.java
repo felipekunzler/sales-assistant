@@ -1,15 +1,13 @@
 package salesassistant.com.salesassistant.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 import salesassistant.com.salesassistant.Constants;
 import salesassistant.com.salesassistant.R;
-import salesassistant.com.salesassistant.dao.ClientDAO;
 import salesassistant.com.salesassistant.dao.ProductDAO;
-import salesassistant.com.salesassistant.data.Client;
 import salesassistant.com.salesassistant.data.Product;
 
 public class ProductDetailsActivity extends AppCompatActivity {
@@ -58,4 +56,5 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         finish();
     }
+
 }

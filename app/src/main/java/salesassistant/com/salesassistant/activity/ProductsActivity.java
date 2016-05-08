@@ -72,4 +72,5 @@ public class ProductsActivity extends AppCompatActivity {
             return view;
         }
     }
+
 }

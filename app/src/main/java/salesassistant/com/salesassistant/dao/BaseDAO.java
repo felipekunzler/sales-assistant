@@ -21,7 +21,7 @@ public abstract class BaseDAO<T extends Item> {
     private static final String TAG = BaseDAO.class.getSimpleName();
     public final String WHERE_ID_CLAUSE = getPkColumn() + " = ";
 
-    private SQLiteDatabase db;
+    protected SQLiteDatabase db;
 
     /** Uses an existing database connection */
     public BaseDAO(SQLiteDatabase db) {
@@ -33,13 +33,13 @@ public abstract class BaseDAO<T extends Item> {
         db = new DatabaseHelper(context).getWritableDatabase();
     }
 
-    protected abstract T extractItem(Cursor cursor);
-
-    protected abstract ContentValues prepareItem(T item);
-
     protected abstract String getPkColumn();
 
     protected abstract String getTableName();
+
+    protected abstract ContentValues prepareItem(T item);
+
+    protected abstract T extractItem(Cursor cursor);
 
     public long addItem(T item) {
         ContentValues values = prepareItem(item);
@@ -59,7 +59,7 @@ public abstract class BaseDAO<T extends Item> {
 
     public List<T> getItems() {
         Log.d(TAG, "getItems()");
-        Cursor cursor = db.query(getTableName(), null, null, null, null, null, getPkColumn());
+        Cursor cursor = getCursor(null);
         List<T> items = new ArrayList<>();
         while(cursor.moveToNext()) {
             items.add(extractItem(cursor));
@@ -68,10 +68,14 @@ public abstract class BaseDAO<T extends Item> {
     }
 
     public T getItem(long id) {
-        Log.d(TAG, "getClients()");
-        Cursor cursor = db.query(getTableName(), null, WHERE_ID_CLAUSE + id, null, null, null, getPkColumn());
+        Log.d(TAG, "getItem()");
+        Cursor cursor = getCursor(WHERE_ID_CLAUSE + id);
         cursor.moveToFirst();
         return extractItem(cursor);
+    }
+
+    protected Cursor getCursor(String whereClause) {
+        return db.query(getTableName(), null, whereClause, null, null, null, getPkColumn());
     }
 
     public int deleteItem(long id) {

@@ -1,29 +1,27 @@
 package salesassistant.com.salesassistant.data;
 
+import java.util.Date;
+
 /**
  * Simple Sale POJO
  */
-public class Sale {
+public class Sale extends Item {
 
-    private long id;
     private Client client;
     private Product product;
+    private Date date;
+
+    public Sale() {
+    }
 
     public Sale(Client client, Product product) {
         this.client = client;
         this.product = product;
     }
 
-    public Sale(long id, Client client, Product product) {
+    public Sale(long id, Client client, Product product, Date date) {
         this(client, product);
-        this.id = id;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
+        this.date = date;
         this.id = id;
     }
 
@@ -41,6 +39,24 @@ public class Sale {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "id=" + id +
+                ", date=" + date +
+                ", client=" + client +
+                ", product=" + product +
+                '}';
     }
 
 }
