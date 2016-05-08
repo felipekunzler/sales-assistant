@@ -9,8 +9,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="salesassistant.com.salesassistant.MainActivity">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/manage_clients"
+        android:id="@+id/btnClients"
+        android:layout_marginBottom="47dp"
+        android:layout_above="@+id/btnProducts"
+        android:layout_alignStart="@+id/btnProducts"
+        android:layout_alignEnd="@+id/btnProducts"
+        android:onClick="onBtnClientsClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/manage_products"
+        android:id="@+id/btnProducts"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onBtnProductsClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_sales"
+        android:id="@+id/btnSales"
+        android:layout_below="@+id/btnProducts"
+        android:layout_marginTop="40dp"
+        android:layout_alignEnd="@+id/btnProducts"
+        android:layout_alignStart="@+id/btnProducts"
+        android:nestedScrollingEnabled="false"
+        android:onClick="onBtnSalesClick" />
 </RelativeLayout>

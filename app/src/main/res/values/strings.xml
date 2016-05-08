@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">SalesAssistant</string>
+    <string name="manage_clients">Manage Clients</string>
+    <string name="manage_products">Manage Products</string>
+    <string name="my_sales">My Sales</string>
+    <string name="new_client">Add new client</string>
+    <string name="client_name">Name</string>
+    <string name="client_address">Address</string>
+    <string name="client_phone">Phone</string>
+    <string name="client_email">Email</string>
+    <string name="save_client">Save</string>
+    <string name="client_edit">Edit Client</string>
+    <string name="client_new">New Client</string>
+    <string name="alert_delete_confirmation">Delete confirmation</string>
+    <string name="alert_delete_message">Do you really want to delete this item?</string>
+    <string name="alert_delete_button">DELETE</string>
+    <string name="alert_cancel_button">CANCEL</string>
+    <string name="toast_deleted">Item deleted</string>
 </resources>

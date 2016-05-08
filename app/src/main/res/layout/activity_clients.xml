@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".activity.ClientsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:gravity="center">
+
+        <ListView
+            android:id="@+id/listViewClients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="@color/colorPrimary"
+            android:drawSelectorOnTop="true"
+            android:footerDividersEnabled="false"
+            android:padding="10dp"
+            android:layout_gravity="top"
+            android:scrollbarStyle="outsideOverlay" >
+        </ListView>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/btn_new_client"
+        android:text="@string/new_client"
+        android:onClick="onBtnNewClientClick"
+        style="@style/CustomButton"
+        android:layout_margin="10dp"/>
+</LinearLayout>
