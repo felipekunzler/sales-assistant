@@ -10,6 +10,10 @@ public class Client extends Item {
     private String address;
     private String email;
 
+    public Client() {
+        super(-1);
+    }
+
     public Client(long id, String name, String phone, String address, String email) {
         super(id);
         this.name = name;

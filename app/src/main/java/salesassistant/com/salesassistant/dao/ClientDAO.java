@@ -15,7 +15,7 @@ import salesassistant.com.salesassistant.database.DatabaseHelper;
 /**
  * Client Data Access Object
  */
-public class ClientDAO {
+public class ClientDAO implements BaseDAO<Client>{
 
     private static final String TAG = ClientDAO.class.getSimpleName();
 
@@ -26,6 +26,8 @@ public class ClientDAO {
     public static final String COL_PHONE = "PHONE";
     public static final String COL_ADDRESS = "ADDRESS";
     public static final String COL_EMAIL = "EMAIL";
+
+    public static final String WHERE_ID_CLAUSE = COL_ID + " = ";
 
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -46,23 +48,32 @@ public class ClientDAO {
         db = new DatabaseHelper(context).getWritableDatabase();
     }
 
-    public long addClient(Client client) {
+    public long addItem(Client client) {
+        ContentValues values = prepareClient(client);
+        return db.insert(TABLE_NAME, null, values);
+    }
+
+    public void addItems(List<Client> clients) {
+        for (Client client : clients) {
+            addItem(client);
+        }
+    }
+
+    public int updateItem(Client client) {
+        ContentValues values = prepareClient(client);
+        return db.update(TABLE_NAME, values, WHERE_ID_CLAUSE + client.getId(), null);
+    }
+
+    private ContentValues prepareClient(Client client) {
         ContentValues values = new ContentValues();
         values.put(COL_NAME, client.getName());
         values.put(COL_PHONE, client.getPhone());
         values.put(COL_ADDRESS, client.getAddress());
         values.put(COL_EMAIL, client.getEmail());
-
-        return db.insert(TABLE_NAME, null, values);
+        return values;
     }
 
-    public void addClients(List<Client> clients) {
-        for (Client client : clients) {
-            addClient(client);
-        }
-    }
-
-    public List<Client> getClients() {
+    public List<Client> getItems() {
         Log.d(TAG, "getClients()");
         Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, COL_ID);
         List<Client> clients = new ArrayList<>();
@@ -72,10 +83,9 @@ public class ClientDAO {
         return clients;
     }
 
-    public Client getClient(long id) {
+    public Client getItem(long id) {
         Log.d(TAG, "getClients()");
-        String whereClause = COL_ID + "=" + id;
-        Cursor cursor = db.query(TABLE_NAME, null, whereClause, null, null, null, COL_ID);
+        Cursor cursor = db.query(TABLE_NAME, null, WHERE_ID_CLAUSE + id, null, null, null, COL_ID);
         cursor.moveToFirst();
         return extractClient(cursor);
     }
@@ -89,8 +99,8 @@ public class ClientDAO {
         return new Client(id, name, phone, address, email);
     }
 
-    public int deleteClient(long id) {
-        String whereClause = COL_ID + "=" + id;
-        return db.delete(TABLE_NAME, whereClause, null);
+    public int deleteItem(long id) {
+        return db.delete(TABLE_NAME, WHERE_ID_CLAUSE + id, null);
     }
+
 }
