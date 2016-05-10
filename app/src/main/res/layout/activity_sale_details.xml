@@ -15,17 +15,25 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/client"
-            android:id="@+id/txtClient" />
+            android:gravity="start"
+            android:orientation="horizontal">
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerClient" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/client"
+                android:id="@+id/txtClient"
+                android:paddingRight="20dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:id="@+id/spinnerClient" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,18 +59,27 @@
             android:text="@string/client_email"
             android:id="@+id/txtClientEmail" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/product"
-            android:id="@+id/txtProduct"
-            android:paddingTop="20dp" />
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:paddingTop="20dp" >
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerProduct" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/product"
+                android:paddingRight="20dp"
+                android:id="@+id/txtProduct" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerProduct"
+                android:spinnerMode="dialog"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

@@ -122,7 +122,7 @@ public class SaleDetailsActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(android.R.layout.simple_spinner_item, parent, false);
+            View view = getLayoutInflater().inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             TextView txt = (TextView)view.findViewById(android.R.id.text1);
             txt.setText(getItem(position).toString());
             return view;
