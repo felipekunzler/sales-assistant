@@ -49,14 +49,4 @@ public class Sale extends Item {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Sale{" +
-                "id=" + id +
-                ", date=" + date +
-                ", client=" + client +
-                ", product=" + product +
-                '}';
-    }
-
 }

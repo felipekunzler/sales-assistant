@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import salesassistant.com.salesassistant.CustomAdapter;
 import salesassistant.com.salesassistant.R;
 import salesassistant.com.salesassistant.dao.SaleDAO;
@@ -66,7 +70,11 @@ public class SalesActivity extends AppCompatActivity {
 
             txtClient.setText(getItem(position).getClient().getName());
             txtProduct.setText(getItem(position).getProduct().getName());
-            txtDate.setText(getItem(position).getDate().toString());
+
+            DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM, Locale.getDefault());
+            dateFormat.setTimeZone(TimeZone.getDefault());
+            String prettyDate = dateFormat.format(getItem(position).getDate());
+            txtDate.setText(prettyDate);
 
             return view;
         }

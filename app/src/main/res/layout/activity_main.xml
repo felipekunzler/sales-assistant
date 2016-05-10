@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/manage_clients"
+        android:text="@string/clients_manage"
         android:id="@+id/btnClients"
         android:layout_marginBottom="47dp"
         android:layout_above="@+id/btnProducts"
@@ -23,7 +23,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/manage_products"
+        android:text="@string/products_manage"
         android:id="@+id/btnProducts"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

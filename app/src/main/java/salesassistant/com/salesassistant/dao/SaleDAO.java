@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import salesassistant.com.salesassistant.Constants;
 import salesassistant.com.salesassistant.data.Client;
@@ -66,8 +67,9 @@ public class SaleDAO extends BaseDAO<Sale> {
     }
 
     private static Date parseDate(String strDate) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_ISO8601, Locale.getDefault());
-        Date date = null;
+        SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_ISO8601);
+        dateFormat.setTimeZone(TimeZone.getTimeZone(Constants.TIME_ZONE_ISO8601));
+        Date date;
         try {
             date = dateFormat.parse(strDate);
         } catch (ParseException e) {

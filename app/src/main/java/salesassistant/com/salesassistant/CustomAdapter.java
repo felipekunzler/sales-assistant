@@ -11,7 +11,7 @@ import salesassistant.com.salesassistant.data.Item;
  */
 public abstract class CustomAdapter<T extends Item> extends BaseAdapter {
 
-    private List<T> data;
+    protected List<T> data;
 
     public CustomAdapter(List<T> data) {
         this.data = data;

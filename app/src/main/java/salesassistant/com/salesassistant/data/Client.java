@@ -59,12 +59,6 @@ public class Client extends Item {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return name;
     }
 }
