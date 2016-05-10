@@ -1,30 +1,29 @@
 <resources>
     <string name="app_name">SalesAssistant</string>
     <string name="main_title">Sales Assistant</string>
-    <string name="my_sales">My Sales</string>
+    <string name="title_sales">Sales</string>
+    <string name="title_assistant">Assistant</string>
+
+    <string name="item_save">Save</string>
 
     <string name="client">Client</string>
-    <string name="client_new">Add new client</string>
     <string name="client_name">Name</string>
     <string name="client_address">Address</string>
     <string name="client_phone">Phone</string>
     <string name="client_email">Email</string>
-    <string name="client_save">Save</string>
     <string name="client_edit">Edit Client</string>
-    <string name="client_new_title">New Client</string>
+    <string name="client_new">New Client</string>
     <string name="clients_manage">Manage Clients</string>
 
     <string name="product">Product</string>
-    <string name="product_new">Add new Product</string>
+    <string name="product_new">New Product</string>
     <string name="product_name">Description</string>
     <string name="product_company">Company</string>
-    <string name="product_save">Save Product</string>
     <string name="product_edit">Edit Product</string>
-    <string name="product_new_title">New Product</string>
     <string name="products_manage">Manage Products</string>
 
-    <string name="sale_new">Make Sale</string>
-    <string name="sale_save">Save Sale</string>
+    <string name="my_sales">My Sales</string>
+    <string name="sale_new">New Sale</string>
     <string name="sale_details">Sale Details</string>
 
     <string name="alert_delete_confirmation">Delete confirmation</string>
@@ -32,7 +31,5 @@
     <string name="alert_delete_button">DELETE</string>
     <string name="alert_cancel_button">CANCEL</string>
     <string name="toast_deleted">Item deleted</string>
-    <string name="title_sales">Sales</string>
-    <string name="title_assistant">Assistant</string>
 
 </resources>

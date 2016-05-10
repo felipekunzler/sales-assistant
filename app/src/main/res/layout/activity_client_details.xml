@@ -71,7 +71,7 @@
         android:layout_weight="1"
         android:layout_marginBottom="0dp"
         android:id="@+id/btnSaveClient"
-        android:text="@string/client_save"
+        android:text="@string/item_save"
         android:onClick="onBtnSaveClientClick"
         style="@style/CustomButton"
         android:layout_margin="10dp"/>

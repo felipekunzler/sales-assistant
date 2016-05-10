@@ -37,7 +37,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             editCompany.setText(product.getCompany());
         }
         else {
-            setTitle(getString(R.string.product_new_title));
+            setTitle(getString(R.string.product_new));
         }
     }
 

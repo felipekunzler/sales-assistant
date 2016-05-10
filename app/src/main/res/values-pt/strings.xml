@@ -1,0 +1,36 @@
+<resources>
+
+    <string name="app_name">SalesAssistant</string>
+    <string name="main_title">Sales Assistant</string>
+    <string name="title_sales">Sales</string>
+    <string name="title_assistant">Assistant</string>
+
+    <string name="item_save">Salvar</string>
+
+    <string name="client">Cliente</string>
+    <string name="client_name">Nome</string>
+    <string name="client_address">Endereço</string>
+    <string name="client_phone">Telefone</string>
+    <string name="client_email">Email</string>
+    <string name="client_edit">Editar Cliente</string>
+    <string name="client_new">Novo Cliente</string>
+    <string name="clients_manage">Gerenciar Clientes</string>
+
+    <string name="product">Producto</string>
+    <string name="product_new">Novo Produto</string>
+    <string name="product_name">Descrição</string>
+    <string name="product_company">Emrpesa</string>
+    <string name="product_edit">Editar Produto</string>
+    <string name="products_manage">Gerenciar Produtos</string>
+
+    <string name="my_sales">Minhas Vendar</string>
+    <string name="sale_new">Nova Venda</string>
+    <string name="sale_details">Detalhes da Venda</string>
+
+    <string name="alert_delete_confirmation">Confirmação de deleção</string>
+    <string name="alert_delete_message">Você quer mesmo deletar este item?</string>
+    <string name="alert_delete_button">DELETAR</string>
+    <string name="alert_cancel_button">CANCELAR</string>
+    <string name="toast_deleted">Item deletado</string>
+
+</resources>
