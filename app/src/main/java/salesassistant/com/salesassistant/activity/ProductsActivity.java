@@ -16,6 +16,9 @@ import salesassistant.com.salesassistant.data.Product;
 import salesassistant.com.salesassistant.listener.CustomOnItemClickListener;
 import salesassistant.com.salesassistant.listener.CustomOnItemLongClickListener;
 
+/**
+ * Activity responsible for showing the list of products.
+ */
 public class ProductsActivity extends AppCompatActivity {
 
     private static final String TAG = ProductsActivity.class.getSimpleName();
@@ -64,12 +67,13 @@ public class ProductsActivity extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.product_item, parent, false);
-
-            TextView txtProduct = (TextView)view.findViewById(R.id.txtProductName);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(R.layout.product_item, parent, false);
+            }
+            TextView txtProduct = (TextView) convertView.findViewById(R.id.txtProductName);
             txtProduct.setText(getItem(position).getName());
 
-            return view;
+            return convertView;
         }
     }
 

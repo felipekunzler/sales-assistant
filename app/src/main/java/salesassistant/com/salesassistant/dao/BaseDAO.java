@@ -9,12 +9,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import salesassistant.com.salesassistant.data.Client;
 import salesassistant.com.salesassistant.data.Item;
 import salesassistant.com.salesassistant.database.DatabaseHelper;
 
 /**
- * Base data access object abstract class
+ * Generic abstract data access object for Items
  */
 public abstract class BaseDAO<T extends Item> {
 
@@ -37,8 +36,18 @@ public abstract class BaseDAO<T extends Item> {
 
     protected abstract String getTableName();
 
+    /**
+     * Prepares an item into a {@link ContentValues}
+     * @param item the item
+     * @return the content value
+     */
     protected abstract ContentValues prepareItem(T item);
 
+    /**
+     * Extracts an item from a {@link Cursor}
+     * @param cursor the cursor
+     * @return the extracted item
+     */
     protected abstract T extractItem(Cursor cursor);
 
     public long addItem(T item) {
@@ -81,4 +90,5 @@ public abstract class BaseDAO<T extends Item> {
     public int deleteItem(long id) {
         return db.delete(getTableName(), WHERE_ID_CLAUSE + id, null);
     }
+
 }

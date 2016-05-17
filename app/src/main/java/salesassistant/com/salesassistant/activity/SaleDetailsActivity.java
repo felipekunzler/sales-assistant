@@ -22,6 +22,9 @@ import salesassistant.com.salesassistant.data.Item;
 import salesassistant.com.salesassistant.data.Product;
 import salesassistant.com.salesassistant.data.Sale;
 
+/**
+ * Activity used to both create and show a Sale.
+ */
 public class SaleDetailsActivity extends AppCompatActivity {
 
     private SaleDAO saleDAO;
@@ -114,6 +117,7 @@ public class SaleDetailsActivity extends AppCompatActivity {
         finish();
     }
 
+    /** Custom spinner adapter used to select an Item  */
     private class CustomSpinnerAdapter<T extends Item> extends CustomAdapter<T> {
 
         public CustomSpinnerAdapter(List<T> data) {
@@ -122,19 +126,24 @@ public class SaleDetailsActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
-            TextView txt = (TextView)view.findViewById(android.R.id.text1);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            }
+            TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
             txt.setText(getItem(position).toString());
-            return view;
+            return convertView;
         }
 
+        /**
+         * Gets the position of an {@link Item} given its {#link Item.getId()}.
+         * @param id the item's id
+         * @return the item's position. Or, -1 if the item's id wasn't found.
+         */
         public int getPosition(long id) {
-            int position = 0;
-            for (T item : data) {
-                if (item.getId() == id) {
-                    return position;
+            for (int pos = 0; pos < data.size(); pos++) {
+                if (getItem(pos).getId() == id) {
+                    return pos;
                 }
-                position++;
             }
             return -1;
         }

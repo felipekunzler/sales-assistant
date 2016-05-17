@@ -10,7 +10,7 @@ import salesassistant.com.salesassistant.data.Client;
 /**
  * Client Data Access Object
  */
-public class ClientDAO extends BaseDAO<Client>{
+public class ClientDAO extends BaseDAO<Client> {
 
     public static final String TABLE_NAME = "CLIENT";
     public static final String COL_ID = "C_ID";

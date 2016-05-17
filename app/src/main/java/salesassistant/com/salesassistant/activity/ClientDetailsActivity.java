@@ -10,21 +10,27 @@ import salesassistant.com.salesassistant.R;
 import salesassistant.com.salesassistant.dao.ClientDAO;
 import salesassistant.com.salesassistant.data.Client;
 
+/**
+ * Activity used to both create and edit a Client.
+ */
 public class ClientDetailsActivity extends AppCompatActivity {
 
     private EditText editName;
     private EditText editPhone;
     private EditText editAddress;
     private EditText editEmail;
-
-    private long clientId;
     private ClientDAO clientDAO;
+
+    /**
+     * The Client that the activity is supposed to show the details of.
+     * -1 if there is no client and the activity is on "Create" mode.
+     */
+    private long clientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_details);
-
         clientDAO = new ClientDAO(getBaseContext());
 
         editName = (EditText) findViewById(R.id.editName);
@@ -47,6 +53,10 @@ public class ClientDetailsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Button click event that both saves or edits a client depending on its {@link Client#getId()}.
+     * @param view the view that triggered the event.
+     */
     public void onBtnSaveClientClick(View view) {
         Client client = new Client();
         client.setName(editName.getText().toString());

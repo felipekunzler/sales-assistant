@@ -4,12 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.TimeZone;
 
 import salesassistant.com.salesassistant.Constants;
@@ -66,6 +64,11 @@ public class SaleDAO extends BaseDAO<Sale> {
         return sale;
     }
 
+    /**
+     * Pareses a SQLite string date to a {@link Date}
+     * @param strDate the date
+     * @return the {@link Date}
+     */
     private static Date parseDate(String strDate) {
         SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_ISO8601);
         dateFormat.setTimeZone(TimeZone.getTimeZone(Constants.TIME_ZONE_ISO8601));

@@ -15,7 +15,7 @@ import salesassistant.com.salesassistant.data.Product;
 import salesassistant.com.salesassistant.data.Sale;
 
 /**
- * SalesAssitant database helper
+ * SalesAssistant database helper.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -45,6 +45,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Imports mock data for clients, products and sales.
+     * @param db the database.
+     */
     public void importInitialData(SQLiteDatabase db) {
         Client c1 = new Client(1, "Armazém do Pedro", "+555137890101", "Rua Independência 722", "bodegadopedro@bol.com.br");
         Client c2 = new Client(2, "Café do Parque", "+555188721313", "Av. João Pessoa 1892", "pqcafe@gmail.com");

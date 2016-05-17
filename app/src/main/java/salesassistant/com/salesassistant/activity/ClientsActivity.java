@@ -16,6 +16,9 @@ import salesassistant.com.salesassistant.data.Client;
 import salesassistant.com.salesassistant.listener.CustomOnItemClickListener;
 import salesassistant.com.salesassistant.listener.CustomOnItemLongClickListener;
 
+/**
+ * Activity responsible for showing the list of clients.
+ */
 public class ClientsActivity extends AppCompatActivity {
 
     private static final String TAG = ClientsActivity.class.getSimpleName();
@@ -65,12 +68,13 @@ public class ClientsActivity extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.client_item, parent, false);
-
-            TextView txtClient = (TextView)view.findViewById(R.id.txtClientName);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(R.layout.client_item, parent, false);
+            }
+            TextView txtClient = (TextView)convertView.findViewById(R.id.txtClientName);
             txtClient.setText(getItem(position).getName());
 
-            return view;
+            return convertView;
         }
     }
 

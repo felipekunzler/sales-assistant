@@ -18,6 +18,9 @@ import salesassistant.com.salesassistant.dao.SaleDAO;
 import salesassistant.com.salesassistant.data.Sale;
 import salesassistant.com.salesassistant.listener.CustomOnItemClickListener;
 
+/**
+ * Activity responsible for listing existing sales
+ */
 public class SalesActivity extends AppCompatActivity {
 
     private ListView listViewSales;
@@ -62,11 +65,12 @@ public class SalesActivity extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.sale_item, parent, false);
-
-            TextView txtClient = (TextView) view.findViewById(R.id.txtClientName);
-            TextView txtProduct = (TextView) view.findViewById(R.id.txtProductName);
-            TextView txtDate = (TextView) view.findViewById(R.id.txtDate);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(R.layout.sale_item, parent, false);
+            }
+            TextView txtClient = (TextView) convertView.findViewById(R.id.txtClientName);
+            TextView txtProduct = (TextView) convertView.findViewById(R.id.txtProductName);
+            TextView txtDate = (TextView) convertView.findViewById(R.id.txtDate);
 
             txtClient.setText(getItem(position).getClient().getName());
             txtProduct.setText(getItem(position).getProduct().getName());
@@ -76,7 +80,7 @@ public class SalesActivity extends AppCompatActivity {
             String prettyDate = dateFormat.format(getItem(position).getDate());
             txtDate.setText(prettyDate);
 
-            return view;
+            return convertView;
         }
     }
 
