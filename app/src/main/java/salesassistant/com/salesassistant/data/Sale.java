@@ -1,5 +1,8 @@
 package salesassistant.com.salesassistant.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
 
 /**
@@ -25,6 +28,19 @@ public class Sale extends Item {
         this.id = id;
     }
 
+    public Sale(JSONObject json) throws JSONException {
+        Client c = new Client();
+        Product p = new Product();
+
+        c.setId(json.getLong("client"));
+        p.setId(json.getLong("product"));
+
+        this.id = json.getLong("id");
+        this.date = null; // need to parse date here
+        this.client = c;
+        this.product = p;
+    }
+
     public Client getClient() {
         return client;
     }
@@ -47,6 +63,20 @@ public class Sale extends Item {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("id", id);
+            json.put("date", date);
+            json.put("client", client.getId());
+            json.put("product", product.getId());
+
+            return json;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

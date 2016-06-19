@@ -12,7 +12,7 @@ import java.text.DateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import salesassistant.com.salesassistant.CustomAdapter;
+import salesassistant.com.salesassistant.adapter.CustomAdapter;
 import salesassistant.com.salesassistant.R;
 import salesassistant.com.salesassistant.dao.SaleDAO;
 import salesassistant.com.salesassistant.data.Sale;

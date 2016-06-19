@@ -1,4 +1,4 @@
-package salesassistant.com.salesassistant;
+package salesassistant.com.salesassistant.adapter;
 
 import android.widget.BaseAdapter;
 

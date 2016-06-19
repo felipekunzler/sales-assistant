@@ -31,5 +31,9 @@
     <string name="alert_delete_button">DELETE</string>
     <string name="alert_cancel_button">CANCEL</string>
     <string name="toast_deleted">Item deleted</string>
+    <string name="menu">Settings</string>
+    <string name="action_backup">Backup</string>
+    <string name="action_restore">Restore</string>
+    <string name="processing">Processing</string>
 
 </resources>

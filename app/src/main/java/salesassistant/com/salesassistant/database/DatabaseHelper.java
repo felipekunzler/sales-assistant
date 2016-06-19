@@ -5,6 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 
 import salesassistant.com.salesassistant.dao.ClientDAO;
@@ -21,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = DatabaseHelper.class.getSimpleName();
 
-    private static final int DB_VERSION = 10;
+    private static final int DB_VERSION = 18;
     private static final String DB_NAME = "salesassistant.db";
 
     public DatabaseHelper(Context context) {
@@ -31,18 +35,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate");
-        db.execSQL(ClientDAO.CREATE_TABLE);
-        db.execSQL(ProductDAO.CREATE_TABLE);
-        db.execSQL(SaleDAO.CREATE_TABLE);
+        createTables(db);
         importInitialData(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        dropTables(db);
+        onCreate(db);
+    }
+
+    public void restore(JSONObject json) throws JSONException {
+        SQLiteDatabase db = getWritableDatabase();
+
+        dropTables(db);
+        createTables(db);
+
+        ClientDAO clientDAO = new ClientDAO(db);
+        JSONArray clients = json.getJSONArray("clients");
+        for (int i = 0; i < clients.length(); i++) {
+            clientDAO.addItem(new Client(clients.getJSONObject(i)));
+        }
+
+        ProductDAO productDAO = new ProductDAO(db);
+        JSONArray products = json.getJSONArray("products");
+        for (int i = 0; i < products.length(); i++) {
+            productDAO.addItem(new Product(products.getJSONObject(i)));
+        }
+
+        SaleDAO saleDAO = new SaleDAO(db);
+        JSONArray sales = json.getJSONArray("sales");
+        for (int i = 0; i < sales.length(); i++) {
+            saleDAO.addItem(new Sale(sales.getJSONObject(i)));
+        }
+    }
+
+    public void createTables(SQLiteDatabase db) {
+        db.execSQL(ClientDAO.CREATE_TABLE);
+        db.execSQL(ProductDAO.CREATE_TABLE);
+        db.execSQL(SaleDAO.CREATE_TABLE);
+    }
+
+    public void dropTables(SQLiteDatabase db) {
         db.execSQL(ClientDAO.DROP_TABLE);
         db.execSQL(ProductDAO.DROP_TABLE);
         db.execSQL(SaleDAO.DROP_TABLE);
-        onCreate(db);
     }
 
     /**

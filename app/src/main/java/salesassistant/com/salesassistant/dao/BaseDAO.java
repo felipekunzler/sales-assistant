@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +91,14 @@ public abstract class BaseDAO<T extends Item> {
 
     public int deleteItem(long id) {
         return db.delete(getTableName(), WHERE_ID_CLAUSE + id, null);
+    }
+
+    public JSONArray getItemsJSON() {
+        JSONArray jsonArray = new JSONArray();
+        for (Item item : getItems()) {
+            jsonArray.put(item.toJSON());
+        }
+        return jsonArray;
     }
 
 }

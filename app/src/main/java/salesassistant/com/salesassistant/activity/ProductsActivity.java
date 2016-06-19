@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import salesassistant.com.salesassistant.CustomAdapter;
+import salesassistant.com.salesassistant.adapter.CustomAdapter;
 import salesassistant.com.salesassistant.R;
 import salesassistant.com.salesassistant.dao.ProductDAO;
 import salesassistant.com.salesassistant.data.Product;

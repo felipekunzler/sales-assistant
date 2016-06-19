@@ -1,5 +1,8 @@
 package salesassistant.com.salesassistant.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Simple Product POJO
  */
@@ -21,6 +24,12 @@ public class Product extends Item {
         this.id = id;
     }
 
+    public Product(JSONObject json) throws JSONException {
+        this.id = json.getLong("id");
+        this.name = json.getString("name");
+        this.company = json.getString("company");
+    }
+
     public String getName() {
         return name;
     }
@@ -40,5 +49,18 @@ public class Product extends Item {
     @Override
     public String toString() {
         return name;
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("id", id);
+            json.put("name", name);
+            json.put("company", company);
+
+            return json;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
