@@ -5,6 +5,9 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
+import salesassistant.com.salesassistant.SalesAssistantUtil;
+import salesassistant.com.salesassistant.dao.SaleDAO;
+
 /**
  * Simple Sale POJO
  */
@@ -36,7 +39,7 @@ public class Sale extends Item {
         p.setId(json.getLong("product"));
 
         this.id = json.getLong("id");
-        this.date = null; // need to parse date here
+        this.date = SalesAssistantUtil.parseDate(json.getString("date"));
         this.client = c;
         this.product = p;
     }
@@ -69,7 +72,7 @@ public class Sale extends Item {
         JSONObject json = new JSONObject();
         try {
             json.put("id", id);
-            json.put("date", date);
+            json.put("date", SalesAssistantUtil.formatDate(date));
             json.put("client", client.getId());
             json.put("product", product.getId());
 

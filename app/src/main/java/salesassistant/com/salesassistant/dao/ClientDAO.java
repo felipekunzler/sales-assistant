@@ -54,6 +54,9 @@ public class ClientDAO extends BaseDAO<Client> {
     @Override
     protected ContentValues prepareItem(Client client) {
         ContentValues values = new ContentValues();
+        if (client.getId() != -1){
+            values.put(COL_ID, client.getId());
+        }
         values.put(COL_NAME, client.getName());
         values.put(COL_PHONE, client.getPhone());
         values.put(COL_ADDRESS, client.getAddress());

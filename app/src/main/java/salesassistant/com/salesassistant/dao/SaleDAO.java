@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import salesassistant.com.salesassistant.Constants;
+import salesassistant.com.salesassistant.SalesAssistantUtil;
 import salesassistant.com.salesassistant.data.Client;
 import salesassistant.com.salesassistant.data.Product;
 import salesassistant.com.salesassistant.data.Sale;
@@ -59,31 +60,20 @@ public class SaleDAO extends BaseDAO<Sale> {
 
         Sale sale = new Sale(client, product);
         sale.setId(cursor.getLong(cursor.getColumnIndex(COL_ID)));
-        sale.setDate(parseDate(cursor.getString(cursor.getColumnIndex(COL_DATE))));
+        sale.setDate(SalesAssistantUtil.parseDate(cursor.getString(cursor.getColumnIndex(COL_DATE))));
 
         return sale;
-    }
-
-    /**
-     * Pareses a SQLite string date to a {@link Date}
-     * @param strDate the date
-     * @return the {@link Date}
-     */
-    private static Date parseDate(String strDate) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_ISO8601);
-        dateFormat.setTimeZone(TimeZone.getTimeZone(Constants.TIME_ZONE_ISO8601));
-        Date date;
-        try {
-            date = dateFormat.parse(strDate);
-        } catch (ParseException e) {
-            throw new IllegalArgumentException(e);
-        }
-        return date;
     }
 
     @Override
     protected ContentValues prepareItem(Sale item) {
         ContentValues values = new ContentValues();
+        if (item.getId() != -1) {
+            values.put(COL_ID, item.getId());
+        }
+        if (item.getDate() != null) {
+            values.put(COL_DATE, SalesAssistantUtil.formatDate(item.getDate()));
+        }
         values.put(COL_CLIENT, item.getClient().getId());
         values.put(COL_PRODUCT, item.getProduct().getId());
         return values;

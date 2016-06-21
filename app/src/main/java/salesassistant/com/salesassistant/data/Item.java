@@ -8,7 +8,7 @@ import org.json.JSONObject;
  */
 public abstract class Item {
 
-    protected long id;
+    protected long id = -1;
 
     public long getId() {
         return id;

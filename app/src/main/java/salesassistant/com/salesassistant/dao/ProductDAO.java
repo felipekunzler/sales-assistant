@@ -48,6 +48,9 @@ public class ProductDAO extends BaseDAO<Product>{
     @Override
     protected ContentValues prepareItem(Product product) {
         ContentValues values = new ContentValues();
+        if (product.getId() != -1){
+            values.put(COL_ID, product.getId());
+        }
         values.put(COL_NAME, product.getName());
         values.put(COL_COMPANY, product.getCompany());
         return values;
